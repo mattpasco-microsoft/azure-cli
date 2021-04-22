@@ -86,58 +86,49 @@ def load_command_table(self, _):
         g.custom_command('update', 'sshkey_update')
         g.custom_command('delete', 'sshkey_delete', confirmation=True)
 
-    with self.command_group(
-        'vm virtual-machine', vm_virtual_machine, client_factory=cf_virtual_machine, is_experimental=True
-    ) as g:
-        g.custom_command('install-patch', 'vm_virtual_machine_install_patch')
-        g.custom_command('reimage', 'vm_virtual_machine_reimage')
+    with self.command_group('vm', vm_virtual_machine, client_factory=cf_virtual_machine, is_experimental=True) as g:
+        g.custom_command('install-patch', 'vm_install_patch')
+        g.custom_command('reimage', 'vm_reimage')
 
     with self.command_group(
-        'vm virtual-machine-scale-set',
-        vm_virtual_machine_scale_set,
-        client_factory=cf_virtual_machine_scale_set,
-        is_experimental=True,
+        'vmss', vm_virtual_machine_scale_set, client_factory=cf_virtual_machine_scale_set, is_experimental=True
     ) as g:
-        g.custom_command(
-            'convert-to-single-placement-group', 'vm_virtual_machine_scale_set_convert_to_single_placement_group'
-        )
+        g.custom_command('convert-to-single-placement-group', 'vmss_convert_to_single_placement_group')
         g.custom_command(
             'force-recovery-service-fabric-platform-update-domain-walk',
-            'vm_virtual_machine_scale_set_force_recovery_service_fabric_platform_update_domain_walk',
+            'vmss_force_recovery_service_fabric_platform_update_domain_walk',
         )
-        g.custom_command('redeploy', 'vm_virtual_machine_scale_set_redeploy')
-        g.custom_command('reimage-all', 'vm_virtual_machine_scale_set_reimage_all')
+        g.custom_command('redeploy', 'vmss_redeploy')
+        g.custom_command('reimage-all', 'vmss_reimage_all')
 
     with self.command_group(
-        'vm virtual-machine-scale-set-vm-extension',
+        'vmss vm-extension',
         vm_virtual_machine_scale_set_vm_extension,
         client_factory=cf_virtual_machine_scale_set_vm_extension,
         is_experimental=True,
     ) as g:
-        g.custom_command('list', 'vm_virtual_machine_scale_set_vm_extension_list')
-        g.custom_show_command('show', 'vm_virtual_machine_scale_set_vm_extension_show')
-        g.custom_command('create', 'vm_virtual_machine_scale_set_vm_extension_create', supports_no_wait=True)
-        g.custom_wait_command('wait', 'vm_virtual_machine_scale_set_vm_extension_show')
+        g.custom_command('list', 'vmss_vm_extension_list')
+        g.custom_show_command('show', 'vmss_vm_extension_show')
+        g.custom_command('create', 'vmss_vm_extension_create', supports_no_wait=True)
+        g.custom_wait_command('wait', 'vmss_vm_extension_show')
 
     with self.command_group(
-        'vm virtual-machine-scale-set-v-ms',
+        'vmss v-ms',
         vm_virtual_machine_scale_set_vms,
         client_factory=cf_virtual_machine_scale_set_vms,
         is_experimental=True,
     ) as g:
-        g.custom_command('redeploy', 'vm_virtual_machine_scale_set_v_ms_redeploy')
-        g.custom_command('reimage-all', 'vm_virtual_machine_scale_set_v_ms_reimage_all')
-        g.custom_command(
-            'retrieve-boot-diagnostic-data', 'vm_virtual_machine_scale_set_v_ms_retrieve_boot_diagnostic_data'
-        )
+        g.custom_command('redeploy', 'vmss_v_ms_redeploy')
+        g.custom_command('reimage-all', 'vmss_v_ms_reimage_all')
+        g.custom_command('retrieve-boot-diagnostic-data', 'vmss_v_ms_retrieve_boot_diagnostic_data')
 
     with self.command_group(
-        'vm virtual-machine-scale-set-vm-run-command',
+        'vmss vm-run',
         vm_virtual_machine_scale_set_vm_run_command,
         client_factory=cf_virtual_machine_scale_set_vm_run_command,
         is_experimental=True,
     ) as g:
-        g.custom_command('list', 'vm_virtual_machine_scale_set_vm_run_command_list')
+        g.custom_command('list', 'vmss_vm_run_list')
 
     with self.command_group('vm disk-access', vm_disk_access, client_factory=cf_disk_access, is_experimental=True) as g:
         g.custom_command('delete-a-private-endpoint-connection', 'vm_disk_access_delete_a_private_endpoint_connection')

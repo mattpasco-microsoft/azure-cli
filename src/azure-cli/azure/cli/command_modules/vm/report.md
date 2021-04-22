@@ -10,11 +10,11 @@
 |CLI Command Group|Group Swagger name|Commands|
 |---------|------------|--------|
 |az sshkey|SshPublicKeys|[commands](#CommandsInSshPublicKeys)|
-|az vm virtual-machine|VirtualMachines|[commands](#CommandsInVirtualMachines)|
-|az vm virtual-machine-scale-set|VirtualMachineScaleSets|[commands](#CommandsInVirtualMachineScaleSets)|
-|az vm virtual-machine-scale-set-vm-extension|VirtualMachineScaleSetVMExtensions|[commands](#CommandsInVirtualMachineScaleSetVMExtensions)|
-|az vm virtual-machine-scale-set-v-ms|VirtualMachineScaleSetVMs|[commands](#CommandsInVirtualMachineScaleSetVMs)|
-|az vm virtual-machine-scale-set-vm-run-command|VirtualMachineScaleSetVMRunCommands|[commands](#CommandsInVirtualMachineScaleSetVMRunCommands)|
+|az vm|VirtualMachines|[commands](#CommandsInVirtualMachines)|
+|az vmss|VirtualMachineScaleSets|[commands](#CommandsInVirtualMachineScaleSets)|
+|az vmss vm-extension|VirtualMachineScaleSetVMExtensions|[commands](#CommandsInVirtualMachineScaleSetVMExtensions)|
+|az vmss v-ms|VirtualMachineScaleSetVMs|[commands](#CommandsInVirtualMachineScaleSetVMs)|
+|az vmss vm-run|VirtualMachineScaleSetVMRunCommands|[commands](#CommandsInVirtualMachineScaleSetVMRunCommands)|
 |az vm disk-access|DiskAccesses|[commands](#CommandsInDiskAccesses)|
 |az vm disk-restore-point|DiskRestorePoint|[commands](#CommandsInDiskRestorePoint)|
 
@@ -29,6 +29,12 @@
 |[az sshkey update](#SshPublicKeysUpdate)|Update|[Parameters](#ParametersSshPublicKeysUpdate)|Not Found|
 |[az sshkey delete](#SshPublicKeysDelete)|Delete|[Parameters](#ParametersSshPublicKeysDelete)|Not Found|
 
+### <a name="CommandsInVirtualMachines">Commands in `az vm` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az vm install-patch](#VirtualMachinesInstallPatches)|InstallPatches|[Parameters](#ParametersVirtualMachinesInstallPatches)|[Example](#ExamplesVirtualMachinesInstallPatches)|
+|[az vm reimage](#VirtualMachinesReimage)|Reimage|[Parameters](#ParametersVirtualMachinesReimage)|[Example](#ExamplesVirtualMachinesReimage)|
+
 ### <a name="CommandsInDiskAccesses">Commands in `az vm disk-access` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
@@ -41,38 +47,32 @@
 |---------|------------|--------|-----------|
 |[az vm disk-restore-point show](#DiskRestorePointGet)|Get|[Parameters](#ParametersDiskRestorePointGet)|[Example](#ExamplesDiskRestorePointGet)|
 
-### <a name="CommandsInVirtualMachines">Commands in `az vm virtual-machine` group</a>
+### <a name="CommandsInVirtualMachineScaleSets">Commands in `az vmss` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az vm virtual-machine install-patch](#VirtualMachinesInstallPatches)|InstallPatches|[Parameters](#ParametersVirtualMachinesInstallPatches)|[Example](#ExamplesVirtualMachinesInstallPatches)|
-|[az vm virtual-machine reimage](#VirtualMachinesReimage)|Reimage|[Parameters](#ParametersVirtualMachinesReimage)|[Example](#ExamplesVirtualMachinesReimage)|
+|[az vmss convert-to-single-placement-group](#VirtualMachineScaleSetsConvertToSinglePlacementGroup)|ConvertToSinglePlacementGroup|[Parameters](#ParametersVirtualMachineScaleSetsConvertToSinglePlacementGroup)|Not Found|
+|[az vmss force-recovery-service-fabric-platform-update-domain-walk](#VirtualMachineScaleSetsForceRecoveryServiceFabricPlatformUpdateDomainWalk)|ForceRecoveryServiceFabricPlatformUpdateDomainWalk|[Parameters](#ParametersVirtualMachineScaleSetsForceRecoveryServiceFabricPlatformUpdateDomainWalk)|Not Found|
+|[az vmss redeploy](#VirtualMachineScaleSetsRedeploy)|Redeploy|[Parameters](#ParametersVirtualMachineScaleSetsRedeploy)|Not Found|
+|[az vmss reimage-all](#VirtualMachineScaleSetsReimageAll)|ReimageAll|[Parameters](#ParametersVirtualMachineScaleSetsReimageAll)|Not Found|
 
-### <a name="CommandsInVirtualMachineScaleSets">Commands in `az vm virtual-machine-scale-set` group</a>
+### <a name="CommandsInVirtualMachineScaleSetVMs">Commands in `az vmss v-ms` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az vm virtual-machine-scale-set convert-to-single-placement-group](#VirtualMachineScaleSetsConvertToSinglePlacementGroup)|ConvertToSinglePlacementGroup|[Parameters](#ParametersVirtualMachineScaleSetsConvertToSinglePlacementGroup)|Not Found|
-|[az vm virtual-machine-scale-set force-recovery-service-fabric-platform-update-domain-walk](#VirtualMachineScaleSetsForceRecoveryServiceFabricPlatformUpdateDomainWalk)|ForceRecoveryServiceFabricPlatformUpdateDomainWalk|[Parameters](#ParametersVirtualMachineScaleSetsForceRecoveryServiceFabricPlatformUpdateDomainWalk)|Not Found|
-|[az vm virtual-machine-scale-set redeploy](#VirtualMachineScaleSetsRedeploy)|Redeploy|[Parameters](#ParametersVirtualMachineScaleSetsRedeploy)|Not Found|
-|[az vm virtual-machine-scale-set reimage-all](#VirtualMachineScaleSetsReimageAll)|ReimageAll|[Parameters](#ParametersVirtualMachineScaleSetsReimageAll)|Not Found|
+|[az vmss v-ms redeploy](#VirtualMachineScaleSetVMsRedeploy)|Redeploy|[Parameters](#ParametersVirtualMachineScaleSetVMsRedeploy)|Not Found|
+|[az vmss v-ms reimage-all](#VirtualMachineScaleSetVMsReimageAll)|ReimageAll|[Parameters](#ParametersVirtualMachineScaleSetVMsReimageAll)|Not Found|
+|[az vmss v-ms retrieve-boot-diagnostic-data](#VirtualMachineScaleSetVMsRetrieveBootDiagnosticsData)|RetrieveBootDiagnosticsData|[Parameters](#ParametersVirtualMachineScaleSetVMsRetrieveBootDiagnosticsData)|[Example](#ExamplesVirtualMachineScaleSetVMsRetrieveBootDiagnosticsData)|
 
-### <a name="CommandsInVirtualMachineScaleSetVMs">Commands in `az vm virtual-machine-scale-set-v-ms` group</a>
+### <a name="CommandsInVirtualMachineScaleSetVMExtensions">Commands in `az vmss vm-extension` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az vm virtual-machine-scale-set-v-ms redeploy](#VirtualMachineScaleSetVMsRedeploy)|Redeploy|[Parameters](#ParametersVirtualMachineScaleSetVMsRedeploy)|Not Found|
-|[az vm virtual-machine-scale-set-v-ms reimage-all](#VirtualMachineScaleSetVMsReimageAll)|ReimageAll|[Parameters](#ParametersVirtualMachineScaleSetVMsReimageAll)|Not Found|
-|[az vm virtual-machine-scale-set-v-ms retrieve-boot-diagnostic-data](#VirtualMachineScaleSetVMsRetrieveBootDiagnosticsData)|RetrieveBootDiagnosticsData|[Parameters](#ParametersVirtualMachineScaleSetVMsRetrieveBootDiagnosticsData)|[Example](#ExamplesVirtualMachineScaleSetVMsRetrieveBootDiagnosticsData)|
+|[az vmss vm-extension list](#VirtualMachineScaleSetVMExtensionsList)|List|[Parameters](#ParametersVirtualMachineScaleSetVMExtensionsList)|[Example](#ExamplesVirtualMachineScaleSetVMExtensionsList)|
+|[az vmss vm-extension show](#VirtualMachineScaleSetVMExtensionsGet)|Get|[Parameters](#ParametersVirtualMachineScaleSetVMExtensionsGet)|[Example](#ExamplesVirtualMachineScaleSetVMExtensionsGet)|
+|[az vmss vm-extension create](#VirtualMachineScaleSetVMExtensionsCreateOrUpdate#Create)|CreateOrUpdate#Create|[Parameters](#ParametersVirtualMachineScaleSetVMExtensionsCreateOrUpdate#Create)|[Example](#ExamplesVirtualMachineScaleSetVMExtensionsCreateOrUpdate#Create)|
 
-### <a name="CommandsInVirtualMachineScaleSetVMExtensions">Commands in `az vm virtual-machine-scale-set-vm-extension` group</a>
+### <a name="CommandsInVirtualMachineScaleSetVMRunCommands">Commands in `az vmss vm-run` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az vm virtual-machine-scale-set-vm-extension list](#VirtualMachineScaleSetVMExtensionsList)|List|[Parameters](#ParametersVirtualMachineScaleSetVMExtensionsList)|[Example](#ExamplesVirtualMachineScaleSetVMExtensionsList)|
-|[az vm virtual-machine-scale-set-vm-extension show](#VirtualMachineScaleSetVMExtensionsGet)|Get|[Parameters](#ParametersVirtualMachineScaleSetVMExtensionsGet)|[Example](#ExamplesVirtualMachineScaleSetVMExtensionsGet)|
-|[az vm virtual-machine-scale-set-vm-extension create](#VirtualMachineScaleSetVMExtensionsCreateOrUpdate#Create)|CreateOrUpdate#Create|[Parameters](#ParametersVirtualMachineScaleSetVMExtensionsCreateOrUpdate#Create)|[Example](#ExamplesVirtualMachineScaleSetVMExtensionsCreateOrUpdate#Create)|
-
-### <a name="CommandsInVirtualMachineScaleSetVMRunCommands">Commands in `az vm virtual-machine-scale-set-vm-run-command` group</a>
-|CLI Command|Operation Swagger name|Parameters|Examples|
-|---------|------------|--------|-----------|
-|[az vm virtual-machine-scale-set-vm-run-command list](#VirtualMachineScaleSetVMRunCommandsList)|List|[Parameters](#ParametersVirtualMachineScaleSetVMRunCommandsList)|[Example](#ExamplesVirtualMachineScaleSetVMRunCommandsList)|
+|[az vmss vm-run list](#VirtualMachineScaleSetVMRunCommandsList)|List|[Parameters](#ParametersVirtualMachineScaleSetVMRunCommandsList)|[Example](#ExamplesVirtualMachineScaleSetVMRunCommandsList)|
 
 
 ## COMMAND DETAILS
@@ -136,6 +136,38 @@ az sshkey create --location "westus" --public-key "{ssh-rsa public key}" --resou
 |**--resource-group-name**|string|The name of the resource group.|resource_group_name|resourceGroupName|
 |**--ssh-public-key-name**|string|The name of the SSH public key.|ssh_public_key_name|sshPublicKeyName|
 
+### group `az vm`
+#### <a name="VirtualMachinesInstallPatches">Command `az vm install-patch`</a>
+
+##### <a name="ExamplesVirtualMachinesInstallPatches">Example</a>
+```
+az vm install-patch --maximum-duration "PT4H" --reboot-setting "IfRequired" --windows-parameters \
+classifications-to-include="Critical" classifications-to-include="Security" max-patch-publish-date="2020-11-19T02:36:43\
+.0539904+00:00" --resource-group "myResourceGroupName" --name "myVMName"
+```
+##### <a name="ParametersVirtualMachinesInstallPatches">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--resource-group-name**|string|The name of the resource group.|resource_group_name|resourceGroupName|
+|**--vm-name**|string|The name of the virtual machine.|vm_name|vmName|
+|**--maximum-duration**|string|Specifies the maximum amount of time that the operation will run. It must be an ISO 8601-compliant duration string such as PT4H (4 hours)|maximum_duration|maximumDuration|
+|**--reboot-setting**|choice|Defines when it is acceptable to reboot a VM during a software update operation.|reboot_setting|rebootSetting|
+|**--windows-parameters**|object|Input for InstallPatches on a Windows VM, as directly received by the API|windows_parameters|windowsParameters|
+|**--linux-parameters**|object|Input for InstallPatches on a Linux VM, as directly received by the API|linux_parameters|linuxParameters|
+
+#### <a name="VirtualMachinesReimage">Command `az vm reimage`</a>
+
+##### <a name="ExamplesVirtualMachinesReimage">Example</a>
+```
+az vm reimage --temp-disk true --resource-group "myResourceGroup" --name "myVMName"
+```
+##### <a name="ParametersVirtualMachinesReimage">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--resource-group-name**|string|The name of the resource group.|resource_group_name|resourceGroupName|
+|**--vm-name**|string|The name of the virtual machine.|vm_name|vmName|
+|**--temp-disk**|boolean|Specifies whether to reimage temp disk. Default value: false. Note: This temp disk reimage parameter is only supported for VM/VMSS with Ephemeral OS disk.|temp_disk|tempDisk|
+
 ### group `az vm disk-access`
 #### <a name="DiskAccessesDeleteAPrivateEndpointConnection">Command `az vm disk-access delete-a-private-endpoint-connection`</a>
 
@@ -191,40 +223,8 @@ az vm disk-restore-point show --name "TestDisk45ceb03433006d1baee0_b70cd924-3362
 |**--vm-restore-point-name**|string|The name of the vm restore point that the disk disk restore point belongs. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.|vm_restore_point_name|vmRestorePointName|
 |**--disk-restore-point-name**|string|The name of the disk restore point created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.|disk_restore_point_name|diskRestorePointName|
 
-### group `az vm virtual-machine`
-#### <a name="VirtualMachinesInstallPatches">Command `az vm virtual-machine install-patch`</a>
-
-##### <a name="ExamplesVirtualMachinesInstallPatches">Example</a>
-```
-az vm virtual-machine install-patch --maximum-duration "PT4H" --reboot-setting "IfRequired" --windows-parameters \
-classifications-to-include="Critical" classifications-to-include="Security" max-patch-publish-date="2020-11-19T02:36:43\
-.0539904+00:00" --resource-group "myResourceGroupName" --name "myVMName"
-```
-##### <a name="ParametersVirtualMachinesInstallPatches">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--resource-group-name**|string|The name of the resource group.|resource_group_name|resourceGroupName|
-|**--vm-name**|string|The name of the virtual machine.|vm_name|vmName|
-|**--maximum-duration**|string|Specifies the maximum amount of time that the operation will run. It must be an ISO 8601-compliant duration string such as PT4H (4 hours)|maximum_duration|maximumDuration|
-|**--reboot-setting**|choice|Defines when it is acceptable to reboot a VM during a software update operation.|reboot_setting|rebootSetting|
-|**--windows-parameters**|object|Input for InstallPatches on a Windows VM, as directly received by the API|windows_parameters|windowsParameters|
-|**--linux-parameters**|object|Input for InstallPatches on a Linux VM, as directly received by the API|linux_parameters|linuxParameters|
-
-#### <a name="VirtualMachinesReimage">Command `az vm virtual-machine reimage`</a>
-
-##### <a name="ExamplesVirtualMachinesReimage">Example</a>
-```
-az vm virtual-machine reimage --temp-disk true --resource-group "myResourceGroup" --name "myVMName"
-```
-##### <a name="ParametersVirtualMachinesReimage">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--resource-group-name**|string|The name of the resource group.|resource_group_name|resourceGroupName|
-|**--vm-name**|string|The name of the virtual machine.|vm_name|vmName|
-|**--temp-disk**|boolean|Specifies whether to reimage temp disk. Default value: false. Note: This temp disk reimage parameter is only supported for VM/VMSS with Ephemeral OS disk.|temp_disk|tempDisk|
-
-### group `az vm virtual-machine-scale-set`
-#### <a name="VirtualMachineScaleSetsConvertToSinglePlacementGroup">Command `az vm virtual-machine-scale-set convert-to-single-placement-group`</a>
+### group `az vmss`
+#### <a name="VirtualMachineScaleSetsConvertToSinglePlacementGroup">Command `az vmss convert-to-single-placement-group`</a>
 
 ##### <a name="ParametersVirtualMachineScaleSetsConvertToSinglePlacementGroup">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -233,7 +233,7 @@ az vm virtual-machine reimage --temp-disk true --resource-group "myResourceGroup
 |**--vm-scale-set-name**|string|The name of the virtual machine scale set to create or update.|vm_scale_set_name|vmScaleSetName|
 |**--active-placement-group-id**|string|Id of the placement group in which you want future virtual machine instances to be placed. To query placement group Id, please use Virtual Machine Scale Set VMs - Get API. If not provided, the platform will choose one with maximum number of virtual machine instances.|active_placement_group_id|activePlacementGroupId|
 
-#### <a name="VirtualMachineScaleSetsForceRecoveryServiceFabricPlatformUpdateDomainWalk">Command `az vm virtual-machine-scale-set force-recovery-service-fabric-platform-update-domain-walk`</a>
+#### <a name="VirtualMachineScaleSetsForceRecoveryServiceFabricPlatformUpdateDomainWalk">Command `az vmss force-recovery-service-fabric-platform-update-domain-walk`</a>
 
 ##### <a name="ParametersVirtualMachineScaleSetsForceRecoveryServiceFabricPlatformUpdateDomainWalk">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -242,7 +242,7 @@ az vm virtual-machine reimage --temp-disk true --resource-group "myResourceGroup
 |**--vm-scale-set-name**|string|The name of the VM scale set.|vm_scale_set_name|vmScaleSetName|
 |**--platform-update-domain**|integer|The platform update domain for which a manual recovery walk is requested|platform_update_domain|platformUpdateDomain|
 
-#### <a name="VirtualMachineScaleSetsRedeploy">Command `az vm virtual-machine-scale-set redeploy`</a>
+#### <a name="VirtualMachineScaleSetsRedeploy">Command `az vmss redeploy`</a>
 
 ##### <a name="ParametersVirtualMachineScaleSetsRedeploy">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -251,7 +251,7 @@ az vm virtual-machine reimage --temp-disk true --resource-group "myResourceGroup
 |**--vm-scale-set-name**|string|The name of the VM scale set.|vm_scale_set_name|vmScaleSetName|
 |**--instance-ids**|array|The virtual machine scale set instance ids. Omitting the virtual machine scale set instance ids will result in the operation being performed on all virtual machines in the virtual machine scale set.|instance_ids|instanceIds|
 
-#### <a name="VirtualMachineScaleSetsReimageAll">Command `az vm virtual-machine-scale-set reimage-all`</a>
+#### <a name="VirtualMachineScaleSetsReimageAll">Command `az vmss reimage-all`</a>
 
 ##### <a name="ParametersVirtualMachineScaleSetsReimageAll">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -260,8 +260,8 @@ az vm virtual-machine reimage --temp-disk true --resource-group "myResourceGroup
 |**--vm-scale-set-name**|string|The name of the VM scale set.|vm_scale_set_name|vmScaleSetName|
 |**--instance-ids**|array|The virtual machine scale set instance ids. Omitting the virtual machine scale set instance ids will result in the operation being performed on all virtual machines in the virtual machine scale set.|instance_ids|instanceIds|
 
-### group `az vm virtual-machine-scale-set-v-ms`
-#### <a name="VirtualMachineScaleSetVMsRedeploy">Command `az vm virtual-machine-scale-set-v-ms redeploy`</a>
+### group `az vmss v-ms`
+#### <a name="VirtualMachineScaleSetVMsRedeploy">Command `az vmss v-ms redeploy`</a>
 
 ##### <a name="ParametersVirtualMachineScaleSetVMsRedeploy">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -270,7 +270,7 @@ az vm virtual-machine reimage --temp-disk true --resource-group "myResourceGroup
 |**--vm-scale-set-name**|string|The name of the VM scale set.|vm_scale_set_name|vmScaleSetName|
 |**--instance-id**|string|The instance ID of the virtual machine.|instance_id|instanceId|
 
-#### <a name="VirtualMachineScaleSetVMsReimageAll">Command `az vm virtual-machine-scale-set-v-ms reimage-all`</a>
+#### <a name="VirtualMachineScaleSetVMsReimageAll">Command `az vmss v-ms reimage-all`</a>
 
 ##### <a name="ParametersVirtualMachineScaleSetVMsReimageAll">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -279,11 +279,11 @@ az vm virtual-machine reimage --temp-disk true --resource-group "myResourceGroup
 |**--vm-scale-set-name**|string|The name of the VM scale set.|vm_scale_set_name|vmScaleSetName|
 |**--instance-id**|string|The instance ID of the virtual machine.|instance_id|instanceId|
 
-#### <a name="VirtualMachineScaleSetVMsRetrieveBootDiagnosticsData">Command `az vm virtual-machine-scale-set-v-ms retrieve-boot-diagnostic-data`</a>
+#### <a name="VirtualMachineScaleSetVMsRetrieveBootDiagnosticsData">Command `az vmss v-ms retrieve-boot-diagnostic-data`</a>
 
 ##### <a name="ExamplesVirtualMachineScaleSetVMsRetrieveBootDiagnosticsData">Example</a>
 ```
-az vm virtual-machine-scale-set-v-ms retrieve-boot-diagnostic-data --instance-id "0" --resource-group "ResourceGroup" \
+az vmss v-ms retrieve-boot-diagnostic-data --instance-id "0" --resource-group "ResourceGroup" \
 --sas-uri-expiration-time-in-minutes 60 --vm-scale-set-name "myvmScaleSet"
 ```
 ##### <a name="ParametersVirtualMachineScaleSetVMsRetrieveBootDiagnosticsData">Parameters</a> 
@@ -294,13 +294,12 @@ az vm virtual-machine-scale-set-v-ms retrieve-boot-diagnostic-data --instance-id
 |**--instance-id**|string|The instance ID of the virtual machine.|instance_id|instanceId|
 |**--sas-uri-expiration-time-in-minutes**|integer|Expiration duration in minutes for the SAS URIs with a value between 1 to 1440 minutes. <br><br>NOTE: If not specified, SAS URIs will be generated with a default expiration duration of 120 minutes.|sas_uri_expiration_time_in_minutes|sasUriExpirationTimeInMinutes|
 
-### group `az vm virtual-machine-scale-set-vm-extension`
-#### <a name="VirtualMachineScaleSetVMExtensionsList">Command `az vm virtual-machine-scale-set-vm-extension list`</a>
+### group `az vmss vm-extension`
+#### <a name="VirtualMachineScaleSetVMExtensionsList">Command `az vmss vm-extension list`</a>
 
 ##### <a name="ExamplesVirtualMachineScaleSetVMExtensionsList">Example</a>
 ```
-az vm virtual-machine-scale-set-vm-extension list --instance-id "0" --resource-group "myResourceGroup" \
---vm-scale-set-name "myvmScaleSet"
+az vmss vm-extension list --instance-id "0" --resource-group "myResourceGroup" --vm-scale-set-name "myvmScaleSet"
 ```
 ##### <a name="ParametersVirtualMachineScaleSetVMExtensionsList">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -310,12 +309,12 @@ az vm virtual-machine-scale-set-vm-extension list --instance-id "0" --resource-g
 |**--instance-id**|string|The instance ID of the virtual machine.|instance_id|instanceId|
 |**--expand**|string|The expand expression to apply on the operation.|expand|$expand|
 
-#### <a name="VirtualMachineScaleSetVMExtensionsGet">Command `az vm virtual-machine-scale-set-vm-extension show`</a>
+#### <a name="VirtualMachineScaleSetVMExtensionsGet">Command `az vmss vm-extension show`</a>
 
 ##### <a name="ExamplesVirtualMachineScaleSetVMExtensionsGet">Example</a>
 ```
-az vm virtual-machine-scale-set-vm-extension show --instance-id "0" --resource-group "myResourceGroup" \
---vm-extension-name "myVMExtension" --vm-scale-set-name "myvmScaleSet"
+az vmss vm-extension show --instance-id "0" --resource-group "myResourceGroup" --vm-extension-name "myVMExtension" \
+--vm-scale-set-name "myvmScaleSet"
 ```
 ##### <a name="ParametersVirtualMachineScaleSetVMExtensionsGet">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -326,14 +325,13 @@ az vm virtual-machine-scale-set-vm-extension show --instance-id "0" --resource-g
 |**--vm-extension-name**|string|The name of the virtual machine extension.|vm_extension_name|vmExtensionName|
 |**--expand**|string|The expand expression to apply on the operation.|expand|$expand|
 
-#### <a name="VirtualMachineScaleSetVMExtensionsCreateOrUpdate#Create">Command `az vm virtual-machine-scale-set-vm-extension create`</a>
+#### <a name="VirtualMachineScaleSetVMExtensionsCreateOrUpdate#Create">Command `az vmss vm-extension create`</a>
 
 ##### <a name="ExamplesVirtualMachineScaleSetVMExtensionsCreateOrUpdate#Create">Example</a>
 ```
-az vm virtual-machine-scale-set-vm-extension create --type-properties-type "extType" --auto-upgrade-minor-version true \
---publisher "extPublisher" --settings "{\\"UserName\\":\\"xyz@microsoft.com\\"}" --type-handler-version "1.2" \
---instance-id "0" --resource-group "myResourceGroup" --vm-extension-name "myVMExtension" --vm-scale-set-name \
-"myvmScaleSet"
+az vmss vm-extension create --type-properties-type "extType" --auto-upgrade-minor-version true --publisher \
+"extPublisher" --settings "{\\"UserName\\":\\"xyz@microsoft.com\\"}" --type-handler-version "1.2" --instance-id "0" \
+--resource-group "myResourceGroup" --vm-extension-name "myVMExtension" --vm-scale-set-name "myvmScaleSet"
 ```
 ##### <a name="ParametersVirtualMachineScaleSetVMExtensionsCreateOrUpdate#Create">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -356,13 +354,12 @@ az vm virtual-machine-scale-set-vm-extension create --type-properties-type "extT
 |**--substatuses**|array|The resource status information.|substatuses|substatuses|
 |**--statuses**|array|The resource status information.|statuses|statuses|
 
-### group `az vm virtual-machine-scale-set-vm-run-command`
-#### <a name="VirtualMachineScaleSetVMRunCommandsList">Command `az vm virtual-machine-scale-set-vm-run-command list`</a>
+### group `az vmss vm-run`
+#### <a name="VirtualMachineScaleSetVMRunCommandsList">Command `az vmss vm-run list`</a>
 
 ##### <a name="ExamplesVirtualMachineScaleSetVMRunCommandsList">Example</a>
 ```
-az vm virtual-machine-scale-set-vm-run-command list --instance-id "0" --resource-group "myResourceGroup" \
---vm-scale-set-name "myvmScaleSet"
+az vmss vm-run list --instance-id "0" --resource-group "myResourceGroup" --vm-scale-set-name "myvmScaleSet"
 ```
 ##### <a name="ParametersVirtualMachineScaleSetVMRunCommandsList">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
