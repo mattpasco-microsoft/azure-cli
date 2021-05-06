@@ -196,6 +196,12 @@ jobs:
       TargetPath: '$(Build.ArtifactStagingDirectory)/msi'
       artifactName: msi
 
+  - task: Bash@3
+    displayName: 'Build test sdk and fulltest packages'
+    inputs:
+      targetType: 'filePath'
+      filePath: scripts/ci/build.sh
+
   - task: PowerShell@2
     displayName: Install and Load CLI
     inputs:
@@ -238,6 +244,9 @@ jobs:
         # Test bundled pip with extension installation
         az extension add -n rdbms-connect
         az self-test
+
+        # Full package tests
+        .\build_scripts\windows\scripts\setup_msi_test.ps1
 
         Get-Content .\install_logs.txt
 
