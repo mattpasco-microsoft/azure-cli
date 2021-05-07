@@ -196,11 +196,16 @@ jobs:
       TargetPath: '$(Build.ArtifactStagingDirectory)/msi'
       artifactName: msi
 
-  - task: Bash@3
-    displayName: 'Build test sdk and fulltest packages'
+  - task: UsePythonVersion@0
+    displayName: 'Use Python 3.8'
     inputs:
-      targetType: 'filePath'
-      filePath: scripts/ci/build.sh
+      versionSpec: 3.8
+
+  - bash: pip install --upgrade pip wheel
+      displayName: "Install pip and wheel"
+
+  - bash: ./scripts/ci/build.sh
+      displayName: "Build test sdk and fulltest packages"
 
   - task: PowerShell@2
     displayName: Install and Load CLI
