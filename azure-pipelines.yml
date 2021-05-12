@@ -201,7 +201,7 @@ jobs:
     inputs:
       versionSpec: 3.8
 
-  - bash: pip install --upgrade pip wheel
+  - bash: pip install --upgrade pip wheel --user
     displayName: "Install pip and wheel"
 
   - bash: ./scripts/ci/build.sh
